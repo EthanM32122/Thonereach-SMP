@@ -1,0 +1,32 @@
+
+name: ThonereachSMP
+main: net.thonereach.smp.Thonereach
+version: 1.0.0
+author: Thonereach
+
+commands:
+  spawn:
+    description: Teleport to spawn
+  setspawn:
+    description: Set server spawn
+    permission: thonereach.admin
+  balance:
+    aliases: [bal, money]
+    description: Check your balance
+  pay:
+    description: Pay another player
+  stats:
+    description: View player stats
+  sethome:
+    description: Set your home
+  home:
+    description: Teleport home
+  msg:
+    aliases: [tell, whisper]
+    description: Message a player
+
+permissions:
+  thonereach.admin:
+    default: op
+  thonereach.staff:
+    default: op
