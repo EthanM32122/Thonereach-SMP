@@ -83,8 +83,13 @@ public class Thonereach extends JavaPlugin implements Listener {
     @EventHandler public void onDeath(PlayerDeathEvent e) {
         Player victim = e.getEntity();
         deaths.put(victim.getUniqueId(), deaths.containsKey(victim.getUniqueId()) ? deaths.get(victim.getUniqueId()) + 1 : 1);
+        getConfig().set(path(victim.getUniqueId(), "deaths"), getConfig().getInt(path(victim.getUniqueId(), "deaths"), 0) + 1);
         Player killer = victim.getKiller();
-        if (killer != null) kills.put(killer.getUniqueId(), kills.containsKey(killer.getUniqueId()) ? kills.get(killer.getUniqueId()) + 1 : 1);
+        if (killer != null) {
+            kills.put(killer.getUniqueId(), kills.containsKey(killer.getUniqueId()) ? kills.get(killer.getUniqueId()) + 1 : 1);
+            getConfig().set(path(killer.getUniqueId(), "kills"), getConfig().getInt(path(killer.getUniqueId(), "kills"), 0) + 1);
+        }
+        saveConfig();
     }
 
     private void tell(CommandSender s, String msg) { s.sendMessage(prefix() + msg); }
@@ -222,7 +227,7 @@ public class Thonereach extends JavaPlugin implements Listener {
         }
         if (c.equals("stats")) {
             if (!playerOnly(sender)) return true;
-            tell(p, ChatColor.AQUA + "Kills: " + kills.containsKey(p.getUniqueId()) + " | Deaths: " + deaths.containsKey(p.getUniqueId()));
+            tell(p, ChatColor.AQUA + "Kills: " + getConfig().getInt(path(p.getUniqueId(), "kills"), 0) + " | Deaths: " + getConfig().getInt(path(p.getUniqueId(), "deaths"), 0));
             tell(p, "Cash: $" + String.format(Locale.US, "%.2f", cash(p.getUniqueId())) + " | Shards: " + shards(p.getUniqueId())); return true;
         }
         if (c.equals("sell") || c.equals("shop")) {
