@@ -1,4 +1,4 @@
-package net.thonereach.smp;
+package net.starlit.smp;
 
 import java.util.*;
 import org.bukkit.*;
@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scoreboard.*;
 
-public class Thonereach extends JavaPlugin implements Listener {
+public class StarlitSMP extends JavaPlugin implements Listener {
     private final Map<UUID, UUID> requests = new HashMap<UUID, UUID>();
     private final Map<UUID, Boolean> requestHere = new HashMap<UUID, Boolean>();
     private final Map<UUID, Set<UUID>> ignored = new HashMap<UUID, Set<UUID>>();

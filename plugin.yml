@@ -1,32 +1,72 @@
-
-name: ThonereachSMP
-main: net.thonereach.smp.Thonereach
-version: 1.0.0
-author: Thonereach
+name: StarlitSMP
+main: net.starlit.smp.StarlitSMP
+version: 2.0.0
+author: Starlit-SMP
+description: Starlit-SMP core for Paper 1.12.2
 
 commands:
   spawn:
-    description: Teleport to spawn
+    description: Teleport to server spawn
   setspawn:
     description: Set server spawn
-    permission: thonereach.admin
-  balance:
-    aliases: [bal, money]
-    description: Check your balance
+    permission: starlit.admin
+  bal:
+    aliases: [balance, money]
+    description: Check your cash balance
+  baltop:
+    description: View richest players
   pay:
-    description: Pay another player
+    description: Pay another player cash
   stats:
     description: View player stats
   sethome:
     description: Set your home
   home:
     description: Teleport home
+  delhome:
+    description: Delete your home
+  tpa:
+    description: Request to teleport to a player
+  tpahere:
+    description: Request a player to teleport to you
+  tpaccept:
+    description: Accept a teleport request
+  tpdeny:
+    description: Deny a teleport request
   msg:
     aliases: [tell, whisper]
-    description: Message a player
+    description: Send a private message
+  ignore:
+    description: Ignore or unignore a player
+  setwarp:
+    description: Create a named warp
+    permission: starlit.admin
+  warp:
+    description: Teleport to a named warp
+  rtp:
+    description: Random teleport
+  afk:
+    description: Go to the AFK area and earn shards
+  shards:
+    description: Check your shard balance
+  sell:
+    description: Sell supported items from your inventory
+  shop:
+    description: View item sell prices
+  phantom:
+    description: Phantom toggle (not available on Minecraft 1.12.2)
+  settings:
+    description: View server settings
+  ah:
+    aliases: [auction]
+    description: Auction house information
+  orders:
+    description: View delivery order information
+  lobby:
+    description: Switch lobby
 
 permissions:
-  thonereach.admin:
+  starlit.admin:
     default: op
-  thonereach.staff:
+  starlit.staff:
     default: op

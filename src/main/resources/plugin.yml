@@ -1,5 +1,5 @@
 name: StarlitSMP
-main: net.thonereach.smp.Thonereach
+main: net.starlit.smp.StarlitSMP
 version: 2.0.0
 author: Starlit-SMP
 description: Starlit-SMP core for Paper 1.12.2

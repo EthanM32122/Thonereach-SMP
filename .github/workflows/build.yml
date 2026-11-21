@@ -1,9 +1,8 @@
-
-name: Build Thonereach SMP
+name: Build Starlit-SMP
 
 on:
   push:
-    branches: [main]
+    branches: [main, rename-to-starlit-smp]
   workflow_dispatch:
 
 jobs:
@@ -12,19 +11,16 @@ jobs:
     steps:
       - name: Get source code
         uses: actions/checkout@v4
-
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '8'
           cache: maven
-
       - name: Build plugin
-        run: mvn clean package
-
+        run: mvn -B clean package
       - name: Upload plugin JAR
         uses: actions/upload-artifact@v4
         with:
-          name: ThonereachSMP
+          name: StarlitSMP
           path: target/StarlitSMP.jar
